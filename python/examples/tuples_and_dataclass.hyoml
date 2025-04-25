@@ -1,0 +1,8 @@
+"use strict"
+
+user: !tuple [Ali, 30, Developer]
+
+profile:
+  name: "Mariam"
+  age: 28
+  role: "Scientist"

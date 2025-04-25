@@ -1,0 +1,9 @@
+name: ali
+age: "42"
+height: "1.75"
+null_field: null
+undefined_str: "undefined"
+description: developer
+nested:
+  type: admin
+  score: "100"

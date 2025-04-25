@@ -1,0 +1,5 @@
+[project]
+name = "hyoml"
+version = "0.0.1"
+description = "Flexible hybrid parser for relaxed JSON/YML with smart formatting"
+requires-python = ">=3.6"
