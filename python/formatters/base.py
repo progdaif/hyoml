@@ -40,6 +40,7 @@ class BaseFormatter(ABC):
                 return tuple(value["values"])
             return value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[BaseFormatter._restore_tuple] Failed: {e}")
 
     @abstractmethod

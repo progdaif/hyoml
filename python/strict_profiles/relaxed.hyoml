@@ -1,0 +1,36 @@
+# Hyoml configuration file for relaxed mode
+
+# ----------- Strict Mode Rules -----------
+quotes-required: false
+no-trailing-commas: false
+no-duplicate-keys: false
+strict-booleans: false
+strict-nulls: false
+strict-numbers: false
+strict-dates: false
+no-mixed-tabs-spaces: false
+indent-size: 4
+tabsonly: false
+disallow-unknown-keywords: false
+reserved-keys-lowercase: false
+reserved-values-lowercase: false
+require-lang: false
+allowed-directives: "*"
+allowed-tags: "*"
+require-braces: false
+require-root-key: false
+hyoml-required: false
+disable-autofix: false
+disable-reviver: false
+disable-visitors: false
+fail-on-invalid-returnType: false
+fallback-to-dict: true
+log-warnings: false
+
+# ----------- Hyoml Parser Options -----------
+tag_key: "_tags"
+directive_key: "_directives"
+merge_tags: true
+
+# ----------- Visitor Pipeline -----------
+visitors: []

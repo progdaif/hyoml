@@ -8,7 +8,7 @@ Supports:
 - Tuple restoration via formatter base
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -63,6 +63,7 @@ class ENV(BaseFormatter):
             return "\n".join(lines)
 
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[ENV.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -80,6 +81,7 @@ class ENV(BaseFormatter):
                        for k, v in data.items())
         except Exception:
             return False
+            return False
 
     def _walk(self, value):
         """
@@ -94,4 +96,5 @@ class ENV(BaseFormatter):
         try:
             return self._restore_tuple(value) if self.restore_tuple else value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[ENV._walk] Failed to process value: {e}")

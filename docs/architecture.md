@@ -1,62 +1,51 @@
+# 🏗 Hyoml Architecture
 
-# Hyoml Architecture
+Hyoml is built to parse, validate, manipulate, and format relaxed JSON/YAML-like data structures efficiently.
 
-## High-Level Structure
+## 📦 Main Components
 
-```
-hyoml/
-└── python/
-    ├── core/                    # Parsers and config
-    │   ├── __init__.py
-    │   ├── hyoml_parser.py
-    │   ├── relaxed_json.py
-    │   ├── relaxed_yml.py
-    │   ├── auto_fixer.py
-    │   └── config.py
-    │
-    ├── formats/                 # Formatters for different output types
-    │   ├── __init__.py
-    │   ├── base_formatter.py
-    │   ├── json_formatter.py
-    │   ├── yml_formatter.py
-    │   ├── toml_formatter.py
-    │   ├── xml_formatter.py
-    │   ├── markdown_formatter.py
-    │   ├── env_formatter.py
-    │   ├── txt_formatter.py
-    │   ├── shell_formatter.py
-    │   ├── sql_formatter.py
-    │   ├── dbunit_formatter.py
-    │   ├── csv_formatter.py
-    │   ├── html_formatter.py
-    │   ├── ini_formatter.py
-    │   └── properties_formatter.py
-    │
-    ├── middleware/              # Directive and tag processors (visitors)
-    │   ├── __init__.py
-    │   ├── tag_visitor.py
-    │   └── directive_visitor.py
-    │
-    ├── utils/                   # Supporting utilities
-    │   ├── __init__.py
-    │   ├── formatter_utils.py
-    │   ├── file_utils.py
-    │   ├── validator.py
-    │   └── logger.py
-    │
-    └── interface/               # CLI and programmatic interface
-        ├── __init__.py
-        ├── hyoml.py
-        └── cli.py
+| Component | Description |
+|:----------|:------------|
+| **Parser** | Reads relaxed input (Hyoml, JSON, YAML) and constructs Python structures |
+| **Formatters** | Output data into formats like JSON, YAML, XML, CSV, RDF, etc. |
+| **Middleware** | Apply visitors (TagVisitor, DirectiveVisitor) to parsed structures |
+| **Loader** | Load data from local, cloud, or URL sources |
+| **Interface** | Expose clean API (`parse`, `format`, `validate`, etc.) to users |
+| **Tests** | Ensure correctness of parsing and formatting processes |
+| **Examples** | Demonstrate usage and edge cases for developers |
+
+---
+
+# 🎨 Design Patterns Used
+
+## 🧩 Factory Pattern
+- Used in **loader_manager.py**, **formatter_manager.py**
+- Dynamically instantiate the correct loader or formatter based on input type.
+
+## 🔀 Strategy Pattern
+- Used in **loader/strategies/** and **formatters/**
+- Select loading strategies or formatting strategies at runtime without changing main logic.
+
+## 👁 Visitor Pattern
+- Used in **middleware/tag_visitor.py** and **directive_visitor.py**
+- Traverse and manipulate parsed data structures cleanly.
+
+---
+
+# 🔗 Dependency Flow
+
+```plaintext
+Parser -> Middleware Visitors -> Formatters
+Loaders -> Parser -> Formatters
 ```
 
-## Design Goals
-- Modular parsing pipeline with plug-and-play middleware
-- Consistent interface across languages (Python, future JS/Go)
-- Extensibility to new formats and output targets
+All components are modular and can be replaced or extended.
 
-## Flow
-1. Input is parsed using `HyomlParser` (from `core/hyoml_parser.py`)
-2. AutoFixer and middleware (`tag_visitor.py`, `directive_visitor.py`) apply transformations
-3. Data is formatted via the selected formatter module in `formats/`
-4. The `Hyoml` class in `interface/hyoml.py` provides both CLI and programmatic access
+---
+
+# 🛡 Key Principles
+
+- No external dependencies for core parsing.
+- Clear, readable Python 3.8+ code.
+- Test-driven design.
+- Flexibility between strict and relaxed parsing modes.

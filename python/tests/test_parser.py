@@ -1,5 +1,5 @@
 import unittest
-from parser.core.hyoml_parser import HyomlParser
+from python.parser.core.hyoml_parser import HyomlParser
 
 class TestHyomlParser(unittest.TestCase):
     """

@@ -1,71 +1,84 @@
-@hyoml_version: 1.0
+@hyoml_version: 0.0.1
 
 # Hyoml Parsing Rules Overview
 # These rules define how the Hyoml parser interprets and processes input text.
 
 # General Structure
 structure:
-  - "Treat content within '{}' as JSON."
-  - "Treat indented or dash-prefixed lines as YAML."
+  - "Content within '{}' is treated as JSON."
+  - "Indented or dash-prefixed lines are considered YAML."
   - "Arrays are denoted by '[]' and processed as lists."
+  - "Top-level keys are treated as global metadata (optional)."
 
 # JSON Parsing Rules
 json:
   - "Unquoted keys and values are allowed."
-  - "Optional commas between elements."
-  - "Support for trailing commas."
+  - "Commas between elements are optional."
+  - "Support for trailing commas at the end of arrays or objects."
   - "Boolean values can be true/false, yes/no, on/off."
-  - "Null values can be represented as null, None, or empty strings."
+  - "Null values can be represented as 'null', 'None', or empty strings."
+  - "Support for multi-line strings enclosed in triple quotes (''' or """)."
 
 # YAML Parsing Rules
 yaml:
-  - "Indentation-sensitive."
-  - "Support for YAML tags and anchors."
-  - "Complex structures like dictionaries and lists are naturally parsed."
+  - "Indentation-sensitive: use spaces for indentation (no tabs)."
+  - "Support for YAML tags and anchors (e.g., &anchor, *alias)."
+  - "Complex structures like dictionaries and lists are parsed naturally."
   - "Strings do not always require quotations unless needed for clarity."
+  - "Multi-line strings are denoted using the '|' (literal) or '>' (folded) character."
+  - "Support for block-style YAML and flow-style (inline) syntax."
 
 # Relaxed Syntax Features
 relaxed_syntax:
   - "Implicit data type recognition for numbers, booleans, and nulls."
   - "Automatic correction of common syntax errors like missing commas or brackets."
-  - "Accepts mixed content of JSON and YAML within the same document."
+  - "Allows mixed content of JSON and YAML within the same document."
+  - "Relaxed string parsing: accepts both single and double quotes for strings."
+  - "Whitespace trimming for key-value pairs (ignore leading/trailing spaces)."
 
 # Directives and Tags
 directives_and_tags:
   - "Use '@' to denote special processing instructions (tags)."
-  - "Use '%' to denote directives that alter default parsing behavior."
+  - "Use '%' to denote directives that alter the default parsing behavior."
   - "Example: '%strict: true' enforces strict JSON/YAML rules."
   - "Tags and directives are parsed and applied during the initial read."
+  - "Custom tags and directives can be defined as needed."
+  - "Support for directive options like '%strict: true', '%debug: false'."
 
 # Multiline Strings
 multiline_support:
   - "Support for multiline strings in both JSON and YAML contexts."
   - "JSON multiline strings must be enclosed in triple quotes (''' or """)."
-  - "YAML uses the '|' character for literal blocks."
+  - "YAML uses the '|' character for literal blocks, and '>' for folded text."
 
 # Embedded Content
 embedded_content:
   - "Use '<hyoml_json>' and '</hyoml_json>' to embed JSON content within YAML."
   - "Use '<hyoml_yaml>' and '</hyoml_yaml>' to embed YAML content within JSON."
-  - "Embedded sections are parsed as specified, ignoring the outer document's format."
+  - "Embedded sections are parsed according to their specific format, ignoring the outer document's format."
+  - "Custom embedded content tags can be defined for other formats (e.g., '<hyoml_sql>')."
 
 # Strict Mode Options
 strict_mode:
   - "Optionally enforce strict parsing rules by setting 'strict_mode: true'."
   - "Strict mode disallows relaxed syntax features and requires precise formatting."
+  - "In strict mode, mixed content (JSON and YAML) is disallowed unless explicitly embedded."
 
 # Error Handling
 error_handling:
   - "Errors are captured and reported with line and column numbers."
   - "Option to continue parsing after errors or halt immediately."
+  - "Support for logging errors, warnings, and success messages to a log file."
+  - "Error severity levels: 'warning', 'error', 'critical'."
 
 # Version Compatibility
 compatibility:
   - "Backward compatibility with older versions of Hyoml rules is maintained."
   - "Forward compatibility warnings for features not supported in older parsers."
+  - "Hyoml versions should be compatible for seamless transitions."
 
 # Comment for users
 comments:
-  - "This .hyoml file defines rules for parsing in the Hyoml system."
+  - "This .hyoml file defines the rules for parsing in the Hyoml system."
   - "Adjust the rules according to project needs and parser capabilities."
-
+  - "Strict rules ensure precise formatting, while relaxed rules allow more flexibility."

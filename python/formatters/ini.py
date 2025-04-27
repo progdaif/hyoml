@@ -7,7 +7,7 @@ Supports:
 - Tuple restoration from encoded forms
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -50,6 +50,7 @@ class INI(BaseFormatter):
             return "\n".join(f"{k} = {quote(self._walk(v))}" for k, v in data.items())
 
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[INI.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -77,4 +78,5 @@ class INI(BaseFormatter):
         try:
             return self._restore_tuple(value) if self.restore_tuple else value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[INI._walk] Failed to process value: {e}")

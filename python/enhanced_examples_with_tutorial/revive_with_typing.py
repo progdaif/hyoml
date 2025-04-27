@@ -24,6 +24,7 @@ def smart_reviver(key, value, context):
             return float(val_lower)
         except ValueError:
             return value.capitalize()
+            return value.capitalize()
     return value
 
 # Load file that contains various mixed types

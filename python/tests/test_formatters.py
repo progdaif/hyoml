@@ -1,8 +1,8 @@
 import unittest
-from formatters.json_formatter import format as format_json
-from formatters.yml_formatter import format as format_yml
-from formatters.toml_formatter import format as format_toml
-from formatters.xml_formatter import format as format_xml
+from python.formatters.json_formatter import format as format_json
+from python.formatters.yml_formatter import format as format_yml
+from python.formatters.toml_formatter import format as format_toml
+from python.formatters.xml_formatter import format as format_xml
 
 class TestFormatters(unittest.TestCase):
     """

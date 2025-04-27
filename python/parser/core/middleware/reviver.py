@@ -62,4 +62,5 @@ class Reviver:
             return data
 
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[Reviver] Failed at path '{key_path}': {e}")

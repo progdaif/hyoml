@@ -1,5 +1,5 @@
 import unittest
-from parser.core.middleware.autofixer import AutoFixer
+from python.parser.core.middleware.autofixer import AutoFixer
 
 class TestAutoFixer(unittest.TestCase):
     """

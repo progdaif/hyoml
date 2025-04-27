@@ -8,7 +8,7 @@ Supports:
 - Tuple restoration using shared _walk logic
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -63,6 +63,7 @@ class CSV(BaseFormatter):
             return "\n".join(output)
 
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[CSV.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -90,4 +91,5 @@ class CSV(BaseFormatter):
         try:
             return self._restore_tuple(value) if self.restore_tuple else value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[CSV._walk] Failed to process value: {e}")

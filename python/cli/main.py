@@ -37,12 +37,14 @@ def main():
     try:
         hy = Hyoml(options=options)
     except Exception as e:
+        print(f"Error: {e}")
         print(f"❌ Failed to initialize Hyoml parser: {e}")
         sys.exit(1)
 
     try:
         data = hy.parse(path=args.file)
     except Exception as e:
+        print(f"Error: {e}")
         print(f"❌ Failed to parse file '{args.file}': {e}")
         sys.exit(1)
 
@@ -50,7 +52,6 @@ def main():
         if args.validate:
             valid = hy.validate(data, args.validate)
             print(f"✅ Valid {args.validate.upper()}: {valid}")
-            return
 
         if args.format:
             result = hy.format(data, args.format, path=args.output)
@@ -59,7 +60,9 @@ def main():
         else:
             print("✅ Parsed Output:")
             print(data)
+            
     except Exception as e:
+        print(f"Error: {e}")
         print(f"❌ Operation failed: {e}")
         sys.exit(1)
 

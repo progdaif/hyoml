@@ -1,46 +1,48 @@
+# ⚙️ Setup and Contribution Guide
 
-# Setup & Installation
+## 🛠 Local Setup
 
-## Requirements
-- Python 3.6+
-- No external dependencies required
+Clone the repository:
 
-## Installation (Python)
 ```bash
-git clone https://github.com/ahmeddaif22/hyoml
-cd hyoml
-pip install -e python/
+git clone <repo-url>
+cd hyoml/python
 ```
 
-## CLI Usage
+Install in editable mode:
+
 ```bash
-hyoml parse input.hyoml --format json --output output.json
+pip install -e .
 ```
 
-## Project Structure Awareness
-- All parsing and formatting logic is under `python/`
-- Language-specific directories will be added in the future (e.g., `javascript/`)
+Install pytest for testing:
+
+```bash
+pip install pytest
+```
+
+Run all tests:
+
+```bash
+pytest tests/
+```
 
 ---
 
-# Contribution Guide
+## 📚 Code Style
 
-We welcome contributions to Hyoml!
+- Follow PEP8 guidelines (using black or flake8 is recommended).
+- Keep functions clean and well-documented.
+- Write docstrings for all public methods.
 
-## How to Contribute
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for your feature or bug fix
-4. Submit a pull request with a clear description
+---
 
-## Coding Style
-- Use clear docstrings and type hints
-- Include error handling
-- Follow the structure under `python/` and extend as needed
+## 🚀 Contributing
 
-## Future Plans
-- Support for additional languages like TypeScript/Go
-- Support for semantic output formats (JSON-LD, RDF)
+- Fork the repository
+- Create a new feature branch
+- Commit your changes with clear commit messages
+- Add tests for any new feature
+- Submit a pull request
 
-## Communication
-If you have questions, open an issue or start a discussion.
+Thank you for making Hyoml better! 🎯

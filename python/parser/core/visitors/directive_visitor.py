@@ -20,11 +20,13 @@ class DirectiveVisitor:
                     data[f"@{key}"] = value
                 except Exception:
                     continue
+                    continue
             elif directive.startswith("<parse") and "mode=" in directive:
                 try:
                     match = directive.strip("<>").split("mode=")[1]
                     data["@parse_mode"] = match.strip('"\' ')
                 except Exception:
+                    pass
                     pass
 
         return data

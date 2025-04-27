@@ -38,6 +38,7 @@ class AutoFixer:
 
             return text
         except Exception as e:
+            print(f"Error: {e}")
             raise RuntimeError(f"[AutoFixer] Failed to apply autofix: {e}")
 
     @staticmethod
@@ -61,6 +62,7 @@ class AutoFixer:
                     lines[i - 1] += ','
             return '\n'.join(lines)
         except Exception as e:
+            print(f"Error: {e}")
             raise RuntimeError(f"[AutoFixer.fix_missing_commas] Failed: {e}")
 
     @staticmethod

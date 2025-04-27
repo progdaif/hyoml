@@ -7,7 +7,7 @@ Supports:
 - Validation of key-value structures
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -61,6 +61,7 @@ class YAML(BaseFormatter):
 
             return self._walk("\n".join(lines))
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[YAML.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -76,6 +77,7 @@ class YAML(BaseFormatter):
         try:
             return isinstance(data, (dict, list))
         except Exception:
+            return False
             return False
 
     def _walk(self, value, indent=0):
@@ -106,4 +108,5 @@ class YAML(BaseFormatter):
             else:
                 return f"{pad}{value}\n"
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[YAML._walk] Failed at indent={indent}: {e}")

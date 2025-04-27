@@ -27,5 +27,7 @@ class VisitorPipeline:
                 cls = getattr(mod, class_name)
                 data = cls.visit(data)
             except Exception as e:
+                print(f"Error: {e}")
                 print(f"[warn] Failed to apply visitor {path}: {e}")
+
         return data

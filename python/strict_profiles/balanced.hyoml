@@ -1,0 +1,39 @@
+# Hyoml configuration file for balanced mode
+
+# ----------- Strict Mode Rules -----------
+quotes-required: true
+no-trailing-commas: true
+no-duplicate-keys: true
+strict-booleans: false
+strict-nulls: true
+strict-numbers: false
+strict-dates: false
+no-mixed-tabs-spaces: true
+indent-size: 2
+tabsonly: false
+disallow-unknown-keywords: false
+reserved-keys-lowercase: false
+reserved-values-lowercase: false
+require-lang: false
+allowed-directives: "*"
+allowed-tags: "*"
+require-braces: false
+require-root-key: false
+hyoml-required: false
+disable-autofix: false
+disable-reviver: false
+disable-visitors: false
+fail-on-invalid-returnType: true
+fallback-to-dict: true
+log-warnings: true
+
+# ----------- Hyoml Parser Options -----------
+tag_key: "_tags"
+directive_key: "_directives"
+merge_tags: false
+
+# ----------- Visitor Pipeline -----------
+visitors:
+  - core.visitors.date_visitor.DateVisitor
+  - core.visitors.tag_visitor.TagVisitor
+  - core.visitors.directive_visitor.DirectiveVisitor

@@ -7,7 +7,7 @@ Supports:
 - Tuple restoration via base formatter
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -57,6 +57,7 @@ class StrictYML(BaseFormatter):
             return "\n".join(lines)
 
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[StrictYML.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -84,4 +85,5 @@ class StrictYML(BaseFormatter):
         try:
             return self._restore_tuple(value) if self.restore_tuple else value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[StrictYML._walk] Failed to process value: {e}")

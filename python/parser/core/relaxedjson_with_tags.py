@@ -88,6 +88,7 @@ class RelaxedJSON:
                     multiline_val.append(stripped)
 
             except Exception as e:
+                print(f"Error: {e}")
                 raise ValueError(f"[RelaxedJSON] Failed to parse line: `{line}`\n{e}")
 
         if multiline_key:
@@ -124,6 +125,7 @@ class RelaxedJSON:
             elif val.isdigit():
                 return int(val)
         except Exception:
+            pass
             pass
 
         if re.match(r'^\\d+/\\d+$', val) or '%' in val or '\\\\' in val:

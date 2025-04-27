@@ -5,8 +5,8 @@ This demonstrates how to sort and search parsed Hyoml data using Hyoml's manipul
 """
 
 from interface.hyoml import Hyoml
-from parser.core.manipulation.sorter import DataSorter
-from parser.core.manipulation.searcher import DataSearcher
+from python.parser.core.manipulation.sorter import DataSorter
+from python.parser.core.manipulation.searcher import DataSearcher
 
 # Sample Hyoml input
 hyoml_text = """

@@ -100,6 +100,7 @@ class RelaxedYML:
                         parent[raw] = True
 
             except Exception as e:
+                print(f"Error: {e}")
                 raise ValueError(f"[RelaxedYML] Failed parsing line: `{line}`\n{e}")
 
         if self.merge_tags:
@@ -127,6 +128,7 @@ class RelaxedYML:
             elif val.isdigit():
                 return int(val)
         except Exception:
+            pass
             pass
 
         if re.match(r'^\\d+/\\d+$', val) or '%' in val or '\\\\' in val:

@@ -7,7 +7,7 @@ Supports:
 - Tuple restoration support
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -59,6 +59,7 @@ class Markdown(BaseFormatter):
             return "\n".join(rows)
 
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[Markdown.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -86,4 +87,5 @@ class Markdown(BaseFormatter):
         try:
             return self._restore_tuple(value) if self.restore_tuple else value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[Markdown._walk] Failed to process value: {e}")

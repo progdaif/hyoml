@@ -7,7 +7,7 @@ Supports:
 - Validation of TOML-compatible structures
 """
 
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -60,6 +60,7 @@ class TOML(BaseFormatter):
 
             return "\n".join(lines)
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[TOML.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -75,6 +76,7 @@ class TOML(BaseFormatter):
         try:
             return isinstance(data, (dict, list))
         except Exception:
+            return False
             return False
 
     def _walk(self, value, prefix=""):
@@ -104,4 +106,5 @@ class TOML(BaseFormatter):
 
             return result
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[TOML._walk] Flattening failed at '{prefix}': {e}")

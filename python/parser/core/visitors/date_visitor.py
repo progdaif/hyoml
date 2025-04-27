@@ -27,6 +27,7 @@ class DateVisitor:
                         return datetime.strptime(value, "%Y-%m-%d").date()
                     except Exception:
                         return value
+                        return value
             return value
 
         def walk(obj):

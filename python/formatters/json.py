@@ -8,7 +8,7 @@ Supports:
 """
 
 import json
-from formatters.base import BaseFormatter
+from python.formatters.base import BaseFormatter
 from utils.formatter_utils import clean_output
 
 
@@ -79,6 +79,7 @@ class JSON(BaseFormatter):
 
             return output
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[JSON.format] Failed to format: {e}")
 
     def validate(self, data):
@@ -95,6 +96,7 @@ class JSON(BaseFormatter):
             json.dumps(data)
             return True
         except Exception:
+            return False
             return False
 
     def _walk(self, value):
@@ -116,4 +118,5 @@ class JSON(BaseFormatter):
                 return [self._walk(v) for v in value]
             return value
         except Exception as e:
+            print(f"Error: {e}")
             raise ValueError(f"[JSON._walk] Failed to process node: {e}")
