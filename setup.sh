@@ -3,7 +3,7 @@
 echo "🔧 Hyoml Multi-Language Setup"
 echo "Select a language to set up:"
 echo "1) Python"
-echo "2) JavaScript (coming soon)"
+echo "2) JavaScript"
 echo "3) Go (coming soon)"
 echo "4) All available"
 read -p "Enter choice [1-4]: " choice
@@ -20,7 +20,14 @@ setup_python() {
 }
 
 setup_js() {
-    echo "🚧 JavaScript setup coming soon."
+    echo "👉 Setting up JavaScript..."
+    cd javascript || exit
+    if [ -f "package.json" ]; then
+        npm install
+    else
+        echo "❌ package.json not found. Skipping JS setup."
+    fi
+    cd ..
 }
 
 setup_go() {

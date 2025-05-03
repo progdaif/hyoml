@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.3.0] - JavaScript Version - 2025-05-03
+
+### Added
+- Full feature parity with Python implementation
+- CLI commands: parse, format, validate
+- Readers: JSON, YAML, ENV, INI, XML, etc.
+- Loaders: File, HTTP, S3, GCS, Azure
+- Output formatters: JSON, YAML, TOML, XML, HTML, Markdown, SQL, etc.
+- Tag and Directive Visitors
+- Reviver hook support
+- AutoFixer middleware
+- Examples and tests using Jest
+- Clean code style (no semicolons, docstrings everywhere)
+
+### Fixed
+- All previous logic errors and unwrapped exceptions
+- CommonJS export consistency
+
 ## [0.0.2] - 2025-04-27
 ### Python
 

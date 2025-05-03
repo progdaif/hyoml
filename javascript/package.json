@@ -1,0 +1,26 @@
+{
+  "name": "hyoml-js",
+  "version": "0.0.3",
+  "description": "Flexible relaxed JSON/YAML/Hyoml parser and formatter",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node run_examples.js"
+  },
+  "keywords": [
+    "json",
+    "yaml",
+    "parser",
+    "formatter",
+    "hyoml",
+    "data",
+    "conversion",
+    "cli"
+  ],
+  "author": "Ahmed Daif <prog.ahmeddaif@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}

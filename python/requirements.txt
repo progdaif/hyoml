@@ -1,0 +1,15 @@
+# Core parsing and formatting
+pyyaml>=6.0
+toml>=0.10.2
+xmltodict>=0.13.0
+
+# Optional cloud and HTTP loading
+requests>=2.31.0
+google-cloud-storage>=2.19.0
+boto3>=1.34.78
+azure-storage-blob>=12.19.1
+
+# Dev and testing
+pytest>=8.1.1
+flake8>=7.0.0
+

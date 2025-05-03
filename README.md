@@ -1,12 +1,10 @@
-
 # Hyoml
 
-Hyoml is a human-like intelligent data format/handler system. Designed to detect, understand and fix compatibility issues. It supports safe fault-tolerant parsing, JSON/YAML/tag/directive processing and output to multiple formats including XML, SQL, Markdown, RSS, up to 23+ formats. It can handle all formats even if mixed together in one string!
+Hyoml is a human-like intelligent data formatter/handler system. Designed to detect, understand and fix compatibility issues. It supports safe fault-tolerant parsing, JSON/YAML/tag/directive processing and output to multiple formats including XML, SQL, Markdown, RSS, up to 23+ formats. It can handle all formats even if mixed together in one string!
 
 It can seamlessly work as a bridge to handle/convert **23+ supported formats** like CSV, OWL, HTML and more. Hyoml empowers you with **near-zero learning curve** and flawless compatibility with modern and  **legacy systems**. It simplifies your integration by intelligently fixing files and formats compatibility issues.
 
 **Hyoml** is **fault-tolerant** yet **safe**, with a comprehensive **unit testing suite** that covers even the **edge cases**. The intelligent universal format of the future that works in **cloud environments** like **GCP**, **AWS**, and **Azure** is now available.
-
 
 ## Key Features
 
@@ -18,7 +16,6 @@ It can seamlessly work as a bridge to handle/convert **23+ supported formats** l
 - 💼 **Fully extendable**: All aspects of Hyoml are **extensible** with easy control over parsing, formatting, and validation.
 - ⚙️ **Multithreading and multiprocessing support**: Handles **large files**, **streams**, and **heavy workloads** effortlessly.
 - 🚀 **Semantic files support**: Handles **native data structures** like **Python tuples** and can process **semantic data formats**.
-
 
 ## Getting Started
 
@@ -36,8 +33,9 @@ Hyoml allows you to parse and format files with the following command:
 ```bash
 hyoml parse input.hyoml --format json --output output.json
 ```
-## Python Example
 
+## Python Example
+```bash
 from hyoml import Hyoml
 
 # Initialize Hyoml
@@ -56,7 +54,7 @@ formatted_json = hyoml.format(parsed_data, "json")
 data_dict = hyoml.toDict(parsed_data)
 data_list = hyoml.toList(parsed_data)
 data_tuple = hyoml.toTuple(parsed_data)
-
+```
 
 ## Project Layout
 
@@ -76,3 +74,37 @@ MIT License – Free and open-source.
 ## Contributing
 
 See [docs/contribution_guide.md](docs/contribution_guide.md) for how to contribute.
+
+---
+
+## 🚀 JavaScript Version (hyoml-js)
+
+Hyoml is also fully implemented in JavaScript as a Node.js-compatible module!
+
+### Key Additions:
+- All Python features ported to JavaScript with full parity
+- Supports CommonJS: `require()` and `module.exports`
+- 23+ input/output formatters including JSON, YAML, XML, Markdown, SQL, HTML, RDF, RSS, etc.
+- Readers and loaders for local files, HTTP, S3, GCS, Azure
+- Visitors and middleware logic (AutoFixer, Tags, Directives)
+- Full CLI toolset: `parse`, `format`, `validate`, `info`, `transform`
+- No semicolons, structured docstrings, and robust error handling
+- Unit + integration tests via Jest
+- Published as `hyoml-js` npm package
+
+### JS Usage
+```bash
+npm install hyoml-js
+```
+
+```js
+const { HyomlParser } = require('hyoml-js')
+
+const data = HyomlParser.parse('{ name: "hyoml" }')
+const output = HyomlParser.format(data, 'yaml')
+```
+
+### JS CLI
+```bash
+node src/cli/main.js parse examples/input.hyoml
+```
